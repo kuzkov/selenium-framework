@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --testTimeout=25000 --config=src/specs/setup/dev.chrome.js --coverage --coverageReporters=\"cobertura\"",
+    "test": "jest --testTimeout=120000 --config=src/specs/setup/dev.chrome.js --coverage --coverageReporters=\"cobertura\"",
     "test:login": "jest src/specs/BookingLoginPage.spec.ts --testTimeout=25000 --config=src/specs/setup/dev.chrome.js",
     "test:home": "jest src/specs/BookingHomePage.spec.ts --testTimeout=25000 --config=src/specs/setup/dev.chrome.js",
     "test:attractions": "jest src/specs/BookingAttractionsPageSearchForm.spec.ts --testTimeout=25000 --config=src/specs/setup/dev.chrome.js",

@@ -1,11 +1,14 @@
 import { WebDriver } from "selenium-webdriver";
 import DriverManager from "../driver/DriverManager";
 import ExplorePage from "../pages/ExplorePage";
+import GoogleConsentPage from "../pages/GoogleConsentPage";
 import ThingsToDoPage from "../pages/ThingsToDoPage";
 import TravelPage from "../pages/TravelPage";
+import { logger } from "../utils/logger";
 
 describe("Travel page", () => {
   let driver: WebDriver;
+  let consentPage: GoogleConsentPage;
   let travelPage: TravelPage;
   let thingsToDoPage: ThingsToDoPage;
   let explorePage: ExplorePage;
@@ -16,11 +19,22 @@ describe("Travel page", () => {
 
   beforeEach(async () => {
     travelPage = new TravelPage(driver);
+    consentPage = new GoogleConsentPage(driver);
     await travelPage.openPage();
+
+    if (await consentPage.isInitialized()) {
+      logger.info("Consent Page Agreement");
+      await consentPage.agreeWithConsent();
+    }
+
     await travelPage.isInitialized();
 
     thingsToDoPage = new ThingsToDoPage(driver);
     explorePage = new ExplorePage(driver);
+  });
+
+  afterEach(async () => {
+    await DriverManager.closeDriver;
   });
 
   afterAll(async () => {

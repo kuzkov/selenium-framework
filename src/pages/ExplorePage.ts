@@ -29,7 +29,7 @@ export default class ExplorePage extends BasePage {
 
   isInitialized(): Promise<boolean> {
     logger.info("Explore page initialized");
-    return super.isInitialized(this.listLocator);
+    return super.isInitialized(this.whereToLocator);
   }
 
   async submitWhereToSearch(value: string): Promise<void> {

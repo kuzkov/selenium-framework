@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --testTimeout=120000 --config=src/specs/setup/dev.chrome.js --coverage --coverageReporters=\"cobertura\""
+    "test": "jest --testTimeout=25000 --config=src/specs/setup/dev.chrome.js --coverage --coverageReporters=\"cobertura\""
   },
   "author": "",
   "license": "ISC",
